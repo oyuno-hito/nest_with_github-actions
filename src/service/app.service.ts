@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Module } from '@nestjs/common';
 import { AppRepository } from 'src/repository/app.repository';
 
 @Injectable()
@@ -9,3 +9,8 @@ export class AppService {
     return `Hello ${name}!`;
   }
 }
+
+@Module({
+  imports: [AppRepository],
+})
+export class AppServiceModule {}

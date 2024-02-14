@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Module } from '@nestjs/common';
 
 @Injectable()
 export class AppRepository {
@@ -6,3 +6,9 @@ export class AppRepository {
     return userName;
   }
 }
+
+@Module({
+  providers: [AppRepository],
+  exports: [AppRepository],
+})
+export class AppRepositoryModule {}
